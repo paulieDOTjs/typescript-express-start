@@ -1,13 +1,12 @@
-import express, { Application, Request, Response, NextFunction } from "express";
+import express from "express";
 
 // Boot express
-const app: Application = express();
-const port = 5000;
+const app = express();
+const port = 5001;
 
 // Application routing
-app.use("/", (req: Request, res: Response, next: NextFunction) => {
-  res.status(200).send({ data: "Hello, World" });
+app.use("/", (_, res, __) => {
+  res.status(200).send('hello world');
 });
 
-// Start server
 app.listen(port, () => console.log(`Server is listening on port ${port}!`));
